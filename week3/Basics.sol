@@ -8,10 +8,10 @@ contract BasicsOfSolidity {
 
     string constant public owner = "Godspower Eze";
 
-    address immutable public owner2;
+    address payable immutable public owner2;
 
-    constructor() {
-        owner2 = msg.sender;
+    constructor(address payable _addr) {
+        owner2 = _addr;
     }
 
     // Integers
@@ -46,6 +46,16 @@ contract BasicsOfSolidity {
     int256 public int256Min = type(int).min; // 0 to (-2 ^ (n -1))
     int public int8Min = type(int8).min; // 0 to (-2 ^ (n -1)) = 0 to -2 ^ (8 - 1) = 0 to -2 ^ 7 = -128
 
+    // Addresses
+    // 0x1d19ef8FC94D8aF1EC921Fd0B4978831D147EBf8
+    // address and address payable
+
+    address payable owner3 = payable(0x1d19ef8FC94D8aF1EC921Fd0B4978831D147EBf8);
+
+    function sendEther() public payable {
+        owner3.transfer(msg.value);
+    }
+
     // Assignment Problem
 
     struct TestData {
@@ -63,7 +73,7 @@ contract BasicsOfSolidity {
 
     int count;
 
-    function addData(string memory _firstName, uint _age) external {
+    function addData(string calldata _firstName, uint _age) external {
         TestData memory _testData = TestData(_firstName, _age);
         count ++;
         users[count] = _testData;
@@ -73,13 +83,97 @@ contract BasicsOfSolidity {
         return users[_id].age; // users[_addr][_addr]
     }
 
-    // Strings
-    // string public testString = "ffff";
+    // Enum
+    enum Choices {
+        YES,
+        NO,
+        MAYBE
+    }
 
-    // function testStringFunc() public returns(string memory) {
-    //     return testString.length;
-    // }
+    Choices myChoice = Choices.YES;
 
-    // function testStringFunc2()
-    
+    function getMyChoice() public view returns(string memory){
+        if (myChoice == Choices.YES){
+            return "Good";
+        }else{
+            return "Bad";
+        }
+    }
+
+    // Funtion Types
+    // Payable functions and Non-payable
+
+    function acceptEther() public payable returns(uint){
+        return msg.value;
+    }
+
+    // Pure and View Function
+    function getOwner() public view returns (address){
+        return owner3;
+    }
+
+    function changeOwner() public pure returns (uint){
+        uint sum = 2 + 2;
+        return sum;
+    }
+
+    // Public, external, internal and private
+    function doSomething() external pure returns(uint) {
+        return 2;
+    }
+
+    function callDoSomething() external view returns (uint){
+        uint something = this.doSomething();
+        return something;
+    }
+
+    // Internal - Inside it's own contract and inside a contract inheriting it
+    // Private - Inside it's own contract
+
+    // Reference Types
+    // Arrays
+    // Fixed and Dynamic
+    uint[] public arrayOfNums;
+
+    uint[5] public arrayOf5Nums;
+
+    // Nested Array
+    uint[][5] public dynamicArrays; 
+
+
+    function getAllValues() public view returns(uint[] memory){
+        return arrayOfNums;
+    }
+
+    // Members
+    // - length
+    // - push()
+    // - push(value)
+    // - pop()
+
+    // Events
+    event Paid (
+        uint amount,
+        uint time
+    );
+
+    function pay() external payable {
+        emit Paid(msg.value, block.timestamp);
+    }
+
+    modifier onlyOwner(){
+        require(msg.sender == owner3, "Not owner");
+        _;
+    }
+
+    function doStuff() external view onlyOwner returns(string memory){
+        return "Stuff";
+    }
+
+    // Fallback and Receive
+    // Fallback - call non-existent functions and send ether
+    // Receive - Send ether
+    fallback() external payable {
+
+    }
 }
