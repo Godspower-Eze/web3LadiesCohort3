@@ -1,0 +1,123 @@
+{
+  "_format": "ethers-rs-sol-cache-3",
+  "paths": {
+    "artifacts": "out",
+    "sources": "src",
+    "tests": "test",
+    "libraries": [
+      "lib"
+    ]
+  },
+  "files": {
+    "/Users/godspowereze/Documents/Projects/web3LadiesCohort3/week5/foundry/lib/ds-test/src/test.sol": {
+      "lastModificationDate": 1666114660945,
+      "contentHash": "962996f0e05d5218857a538a62d7c47e",
+      "sourceName": "lib/ds-test/src/test.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london"
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.5.0",
+      "artifacts": {
+        "DSTest": {
+          "0.8.10+commit.fc410830.Darwin.appleclang": "test.sol/DSTest.json"
+        }
+      }
+    },
+    "/Users/godspowereze/Documents/Projects/web3LadiesCohort3/week5/foundry/src/Test.sol": {
+      "lastModificationDate": 1666115174170,
+      "contentHash": "6ea3704f39203ce81762c154281be9cc",
+      "sourceName": "src/Test.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london"
+        }
+      },
+      "imports": [],
+      "versionRequirement": "=0.8.10",
+      "artifacts": {}
+    },
+    "/Users/godspowereze/Documents/Projects/web3LadiesCohort3/week5/foundry/src/test/Namer.t.sol": {
+      "lastModificationDate": 1666115772051,
+      "contentHash": "73a75f77a74451b7cdd2daa79c2fda5e",
+      "sourceName": "src/test/Namer.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london"
+        }
+      },
+      "imports": [
+        "lib/ds-test/src/test.sol",
+        "src/Test.sol"
+      ],
+      "versionRequirement": "=0.8.10",
+      "artifacts": {
+        "NamerTest": {
+          "0.8.10+commit.fc410830.Darwin.appleclang": "Namer.t.sol/NamerTest.json"
+        }
+      }
+    }
+  }
+}
