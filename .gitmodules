@@ -1,0 +1,3 @@
+[submodule "week5/foundry/lib/ds-test"]
+	path = week5/foundry/lib/ds-test
+	url = https://github.com/dapphub/ds-test
